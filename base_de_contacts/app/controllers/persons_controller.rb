@@ -3,6 +3,14 @@ class PersonsController < ApplicationController
   end
 
   def create
-    render plain: params[:person].inspect
+    @person = Person.new(person_params)
+
+    @person.save
+    redirect_to @person
   end
+
+  private
+    def person_params
+      params.require(:person).permit(:firstname, :lastname, :email, :bio)
+    end
 end
