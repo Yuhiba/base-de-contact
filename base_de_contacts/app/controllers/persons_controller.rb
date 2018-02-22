@@ -13,8 +13,11 @@ class PersonsController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-    @person.save
-    redirect_to @person
+    if @person.save
+      redirect_to @person
+    else
+      render 'new'
+    end
   end
 
   private
