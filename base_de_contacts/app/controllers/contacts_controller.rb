@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
   end
   def index
-    @contact = Contact.all
+    @contacts = Contact.all
   end
 
   def show
@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
 
   private
     def contact_params
-      params.require(:contact).permit(:firstname, :lastname, :email, :bio)
+      params.require(:contact).permit(:firstname, :lastname, :email, :tel, :bio)
     end
 end
 
