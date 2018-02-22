@@ -1,0 +1,41 @@
+<%= form_with(model: @person) do |form| %>
+
+  <% if @person.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@person.errors.count, "error") %> prohibited
+      this person form being saved:
+    </h2>
+    <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <%= form.label :firstname %><br>
+  <%= form.text_field :firstname %>
+</p>
+
+<p>
+  <%= form.label :lastname %><br>
+  <%= form.text_field :lastname %>
+</p>
+
+<p>
+  <%= form.label :email %><br>
+  <%= form.email_field :email %>
+</p>
+
+<p>
+  <%= form.label :bio %><br>
+  <%= form.text_area :bio %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

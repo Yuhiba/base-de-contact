@@ -1,43 +1,6 @@
-<%= form_with scope: :person, url: persons_path, local: true do |form| %>
+<h1> New Contact</h1>
 
-   <% if @peron.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@person.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @person.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'form' %>
 
-  <p>
-    <%= form.label :firstname %><br>
-    <%= form.text_field :firstname %>
-  </p>
+<%= link_to 'Back', persons_path %>
 
-  <p>
-    <%= form.label :lastname %><br>
-    <%= form.text_field :lastname %>
-  </p>
-
-  <p>
-    <%= form.label :email %><br>
-    <%= form.email_field :email %>
-  </p>
-
-  <p>
-    <%= form.label :bio %><br>
-    <%= form.text_area :bio %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-  <p>
-    <%= link_to 'Back', persons_path %>
-  </p>
-<% end %>
