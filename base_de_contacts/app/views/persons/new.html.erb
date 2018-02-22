@@ -1,4 +1,19 @@
 <%= form_with scope: :person, url: persons_path, local: true do |form| %>
+
+   <% if @peron.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@person.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @person.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= form.label :firstname %><br>
     <%= form.text_field :firstname %>
